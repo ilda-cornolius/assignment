@@ -7,7 +7,7 @@ Student Number: 300699371
 
 ## Exercise 1 - Singly Linked List Node Swap
 
-Swapping linked-list nodes is more complex than swapping element values because the links around each node must be changed without losing access to the rest of the list. The method must update the previous nodes, the `next` references, and sometimes the `head` or `tail`. One edge case that required extra care was swapping adjacent nodes, because the first node points directly to the second node before the swap.
+Swapping linked-list nodes is more complex than swapping element values because the links around each node must be changed without losing access to the rest of the list. The method must update the previous nodes, the `next` references, and sometimes the `head` or `tail`. One edge case that required extra care was swapping adjacent nodes, because the first node points directly to the second node before the swap.     
 
 Checkpoint produced: `checkpoint1.txt`
 
@@ -31,7 +31,7 @@ No manual checkpoint files were used. Both checkpoint files were produced by run
 
 Tool used: Cursor AI assistant  
 Purpose: Help create the Java project files, linked-list methods, test code, checkpoint writing/reading, and README responses.  
-What I kept or changed: Exercise 1 and Exercise 2 were rebuilt from the provided lecture `SinglyLinkedList.java` and `DoublyLinkedList.java` files, with only the lab-required methods and testing code added. Package names, checkpoint flow, and assignment explanations were reviewed.  
+What I kept or changed: Exercises 1–3 were rebuilt from the provided lecture `SinglyLinkedList.java`, `DoublyLinkedList.java`, and `CircularlyLinkedList.java` files, with only the lab-required methods and testing code added. Package names, checkpoint flow, and assignment explanations were reviewed.  
 What I personally tested or verified: I compiled and ran the Java programs for all three exercises, checked that `checkpoint1.txt` and `checkpoint2.txt` were produced by the programs, and verified that the circular-list comparison returns `true` before modification and `false` after modification.
 
 ## Video Walkthrough
