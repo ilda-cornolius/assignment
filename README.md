@@ -31,7 +31,7 @@ No manual checkpoint files were used. Both checkpoint files were produced by run
 
 Tool used: Cursor AI assistant  
 Purpose: Help create the Java project files, linked-list methods, test code, checkpoint writing/reading, and README responses.  
-What I kept or changed: I kept the generated structure and reviewed the linked-list pointer logic, package names, checkpoint flow, and assignment explanations.  
+What I kept or changed: Exercise 1 and Exercise 2 were rebuilt from the provided lecture `SinglyLinkedList.java` and `DoublyLinkedList.java` files, with only the lab-required methods and testing code added. Package names, checkpoint flow, and assignment explanations were reviewed.  
 What I personally tested or verified: I compiled and ran the Java programs for all three exercises, checked that `checkpoint1.txt` and `checkpoint2.txt` were produced by the programs, and verified that the circular-list comparison returns `true` before modification and `false` after modification.
 
 ## Video Walkthrough
