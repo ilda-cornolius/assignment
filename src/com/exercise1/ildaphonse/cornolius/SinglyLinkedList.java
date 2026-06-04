@@ -360,16 +360,17 @@ public class SinglyLinkedList<E> implements Cloneable {
   }
 
   void main() throws IOException {
+    //creating a singlylinked list and adding 6 work items to it 
     SinglyLinkedList<WorkItem> assignments = new SinglyLinkedList<>();
-    assignments.addLast(new WorkItem(101, "Read chapter notes", 1));
-    assignments.addLast(new WorkItem(102, "Complete quiz", 2));
-    assignments.addLast(new WorkItem(103, "Draft lab answer", 3));
-    assignments.addLast(new WorkItem(104, "Review lecture code", 4));
-    assignments.addLast(new WorkItem(105, "Prepare submission", 5));
-    assignments.addLast(new WorkItem(106, "Upload files", 6));
+    assignments.addLast(new WorkItem(101, "Defeat monster", 1));
+    assignments.addLast(new WorkItem(102, "Quest reward", 2));
+    assignments.addLast(new WorkItem(103, "Player turn", 3));
+    assignments.addLast(new WorkItem(104, "Create boss", 4));
+    assignments.addLast(new WorkItem(105, "Achievement", 5));
+    assignments.addLast(new WorkItem(106, "Save game state", 6));
 
     IO.println("Exercise 1 - Singly Linked List Node Swap");
-    IO.println("Before swaps:");
+    IO.println("Before swap:");
     IO.println(assignments);
 
     assignments.swapTwoNodes(assignments.locateNodeById(102), assignments.locateNodeById(105));

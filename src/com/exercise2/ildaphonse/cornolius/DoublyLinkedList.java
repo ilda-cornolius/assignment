@@ -292,7 +292,7 @@ public class DoublyLinkedList<E> {
     }
     return ids;
   }
-
+//this method saves data into a textpad file 
   private static void saveCheckpoint(String fileName, List<Integer> ids) throws IOException {
     String line = ids.stream()
         .map(String::valueOf)
@@ -311,8 +311,20 @@ public class DoublyLinkedList<E> {
         .toList();
   }
 
-  private static WorkItem createAssignment(int id, int priority) {
-    return new WorkItem(id, "Assignment task " + id, priority);
+  private static String gameNameForId(int id) {
+    return switch (id) {
+      case 101 -> "Defeat monster";
+      case 102 -> "Quest reward";
+      case 103 -> "Player turn";
+      case 104 -> "Create boss";
+      case 105 -> "Achievement";
+      case 106 -> "Save game state";
+      default -> "Game event " + id;
+    };
+  }
+
+  private static WorkItem createGameEvent(int id, int priority) {
+    return new WorkItem(id, gameNameForId(id), priority);
   }
 
   /**
@@ -333,31 +345,36 @@ public class DoublyLinkedList<E> {
   }
 
   void main() throws IOException {
-    // Ildaphonse Cornolius - 300699371
+    
     List<Integer> checkpointIds = readCheckpoint("checkpoint1.txt");
+    //creating two doublylinked lists called l1 and l2
     DoublyLinkedList<WorkItem> l1 = new DoublyLinkedList<>();
     DoublyLinkedList<WorkItem> l2 = new DoublyLinkedList<>();
 
+    
     int priority = 1;
+    //this for loop populates the two linked lists that will be concatenated later
     for (int id : checkpointIds) {
-      WorkItem original = createAssignment(id, priority);
+      WorkItem original = createGameEvent(id, priority);
       l1.addLast(original);
-      l2.addLast(createAssignment(id, original.getPriority() + 10));
+      l2.addLast(createGameEvent(id, original.getPriority() + 10));
       priority++;
     }
 
-    IO.println("Exercise 2 - Doubly Linked List Concatenation");
+    //printing out the l1 list value
+    IO.println("Exercise 2 - Doubly Linked List");
     IO.println("L1 built from checkpoint1.txt:");
     IO.println(l1);
     IO.println("L2 with transformed priorities:");
     IO.println(l2);
 
+    //concatening link list l2 to the end of l1
     l1.concatenate(l2);
     IO.println("Final concatenated list:");
     IO.println(l1);
     IO.println("L2 after concatenation:");
     IO.println(l2);
-
+//this method then saves the ids of the concatenedated list into l1 
     saveCheckpoint("checkpoint2.txt", l1.idSequence());
     IO.println("Saved checkpoint2.txt: " + l1.idSequence());
   }

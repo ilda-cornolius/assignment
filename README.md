@@ -1,4 +1,4 @@
-# Theme: Course Assignments
+# Theme: Game Programming
 
 # COMP-254 Lab 1
 

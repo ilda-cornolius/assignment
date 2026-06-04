@@ -286,11 +286,23 @@ public class CircularlyLinkedList<E> {
         .toList();
   }
 
-  private static CircularlyLinkedList<WorkItem> buildAssignments(List<Integer> ids) {
+  private static String gameNameForId(int id) {
+    return switch (id) {
+      case 101 -> "Defeat monster";
+      case 102 -> "Quest reward";
+      case 103 -> "Player turn";
+      case 104 -> "Create boss";
+      case 105 -> "Achievement";
+      case 106 -> "Save game state";
+      default -> "Game event " + id;
+    };
+  }
+
+  private static CircularlyLinkedList<WorkItem> buildGameEvents(List<Integer> ids) {
     CircularlyLinkedList<WorkItem> list = new CircularlyLinkedList<>();
     int priority = 1;
     for (int id : ids) {
-      list.addLast(new WorkItem(id, "Assignment task " + id, priority));
+      list.addLast(new WorkItem(id, gameNameForId(id), priority));
       priority++;
     }
     return list;
@@ -315,10 +327,10 @@ public class CircularlyLinkedList<E> {
   }
 
   void main() throws IOException {
-    // Ildaphonse Cornolius - 300699371
+
     List<Integer> checkpointIds = readCheckpoint("checkpoint2.txt");
-    CircularlyLinkedList<WorkItem> c1 = buildAssignments(checkpointIds);
-    CircularlyLinkedList<WorkItem> c2 = buildAssignments(checkpointIds);
+    CircularlyLinkedList<WorkItem> c1 = buildGameEvents(checkpointIds);
+    CircularlyLinkedList<WorkItem> c2 = buildGameEvents(checkpointIds);
     c2.rotate();
     c2.rotate();
     c2.rotate();
