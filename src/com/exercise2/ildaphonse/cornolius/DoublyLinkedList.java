@@ -262,20 +262,31 @@ public class DoublyLinkedList<E> {
   }
 
   public void concatenate(DoublyLinkedList<E> other) {
+    //start here
+    //if the list is null or empty then return back to the main thread
     if (other == null || other.isEmpty()) {
       return;
     }
 
+    //were in the doubly linked list now
+    //creating a new node inside the list 
     Node<E> thisLast = trailer.getPrev();
+    //header is not a real node (sentinel) it points to any real data after the header
     Node<E> otherFirst = other.header.getNext();
+    //trailer is a sentinel node that indicates the end of the list, this points to the node before the last one
     Node<E> otherLast = other.trailer.getPrev();
 
+    //its setting the forward lin and the backward link (thus doubly linked list) 
+    //this line points the first node of the other list to the end of the first list 
     thisLast.setNext(otherFirst);
     otherFirst.setPrev(thisLast);
     otherLast.setNext(trailer);
     trailer.setPrev(otherLast);
+
+    //when you're concatenating two lists you need to update the count manually
     size += other.size;
 
+    //clearing the other list 
     other.header.setNext(other.trailer);
     other.trailer.setPrev(other.header);
     other.size = 0;

@@ -327,24 +327,29 @@ public class CircularlyLinkedList<E> {
   }
 
   void main() throws IOException {
-
+//start here  
+//this method reads the checkpoint2.txt file and builds a list of work items from it
     List<Integer> checkpointIds = readCheckpoint("checkpoint2.txt");
     CircularlyLinkedList<WorkItem> c1 = buildGameEvents(checkpointIds);
     CircularlyLinkedList<WorkItem> c2 = buildGameEvents(checkpointIds);
+    
+    //first goes to the end 
     c2.rotate();
     c2.rotate();
     c2.rotate();
 
-    IO.println("Exercise 3 - Circular Linked List Rotation Check");
+    IO.println("Exercise 3: Circular Linked List Rotation");
     IO.println("C1 from checkpoint2.txt:");
     IO.println(c1);
     IO.println("C2 rotated from C1:");
     IO.println(c2);
     IO.println("c1.sameSequence(c2): " + c1.sameSequence(c2));
 
+    //motifying the first node of c2 with a priority of 99
     WorkItem changed = c2.first().withPriority(99);
     c2.replaceFirst(changed);
     IO.println("C2 after modifying the first item priority:");
+    //printing out the modified list
     IO.println(c2);
     IO.println("c1.sameSequence(c2) after modification: " + c1.sameSequence(c2));
   }

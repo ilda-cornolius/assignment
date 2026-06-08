@@ -209,6 +209,7 @@ public class SinglyLinkedList<E> implements Cloneable {
 
     Node<E> previous1 = findPrevious(node1);
     Node<E> previous2 = findPrevious(node2);
+    //if there's only one node and the other one is null in the same list return back
     if ((node1 != head && previous1 == null) || (node2 != head && previous2 == null)) {
       return;
     }
